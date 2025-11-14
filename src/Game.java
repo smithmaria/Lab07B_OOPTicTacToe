@@ -9,7 +9,7 @@ public class Game {
         board = new Board();
         currentPlayer = "X";
         gameOver = false;
-        gui = new TicTacToeGUI(/*this*/);
+        gui = new TicTacToeGUI(this);
     }
 
     public void handleMove(int row, int col) {
@@ -18,18 +18,17 @@ public class Game {
         if (!board.isValidMove(row, col)) return;
 
         board.makeMove(row, col, currentPlayer);
-
-        // TODO: update gui
+        gui.updateTile(row, col, currentPlayer);
 
         if (board.isWin(currentPlayer)) {
             gameOver = true;
-            // TODO: tell gui it's a win — gui.showWin(currentPlayer);
+             gui.showWinner(currentPlayer);
             return;
         }
 
         if (board.isTie()) {
             gameOver = true;
-            // TODO: tell gui it's a tie — gui.showTie();
+             gui.showTie();
             return;
         }
 
@@ -41,9 +40,7 @@ public class Game {
         gameOver = false;
 
         board.clearBoard();
-
-        // TODO: clear gui board
-        // gui.reset();
+        gui.reset();
     }
 
     public String getCurrentPlayer() {
