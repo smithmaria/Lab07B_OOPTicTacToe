@@ -35,8 +35,8 @@ public class Board {
 
     public boolean isRowWin(String player) {
         for (int row = 0; row < ROW; row++) {
-            if (board[row][0].equals(player) ||
-                board[row][1].equals(player) ||
+            if (board[row][0].equals(player) &&
+                board[row][1].equals(player) &&
                 board[row][2].equals(player)) {
                 return true;
             }
