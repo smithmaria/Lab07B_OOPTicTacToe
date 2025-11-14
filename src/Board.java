@@ -22,11 +22,11 @@ public class Board {
     }
 
     public void makeMove(int row, int col, String player) {
-        board[ROW][COL] = player;
+        board[row][col] = player;
     }
 
     public String getMarkAt(int row, int col) {
-        return board[ROW][COL];
+        return board[row][col];
     }
 
     public boolean isWin(String player) {
@@ -35,9 +35,9 @@ public class Board {
 
     public boolean isRowWin(String player) {
         for (int row = 0; row < ROW; row++) {
-            if (board[ROW][0].equals(player) ||
-                board[ROW][1].equals(player) ||
-                board[ROW][2].equals(player)) {
+            if (board[row][0].equals(player) ||
+                board[row][1].equals(player) ||
+                board[row][2].equals(player)) {
                 return true;
             }
         }
@@ -46,8 +46,8 @@ public class Board {
 
     public boolean isColWin(String player) {
         for (int col = 0; col < ROW; col++) {
-            if (board[0][col].equals(player) ||
-                    board[1][col].equals(player) ||
+            if (board[0][col].equals(player) &&
+                    board[1][col].equals(player) &&
                     board[2][col].equals(player)) {
                 return true;
             }
