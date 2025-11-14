@@ -6,7 +6,7 @@ public class Board {
     // Constructor
     public Board() {
         board = new String[ROW][COL];
-         clearBoard();
+        clearBoard();
     }
 
     public void clearBoard() {
